@@ -1,0 +1,9 @@
+{
+  "short_name": "DomChoose",
+  "name": "DomChoose App",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#DDD0C8",
+  "background_color": "#DDD0C8"
+}
