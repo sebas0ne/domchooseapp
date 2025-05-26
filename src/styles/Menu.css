@@ -1,0 +1,69 @@
+.menu-icon {
+  position: fixed;
+  bottom: 1.5rem;
+  width: 30px;
+  height: 25px;
+  z-index: 1001;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu-icon span {
+  height: 4px;
+  width: 100%;
+  background: #323232;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+.menu-icon.open span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.overlay-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #DDD0C8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.overlay-menu.active {
+  transform: translateY(0);
+}
+
+.overlay-menu ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.overlay-menu li {
+  font-size: 2rem;
+  margin: 1rem 0;
+  color: #323232;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.overlay-menu li:hover {
+  color: #666;
+}

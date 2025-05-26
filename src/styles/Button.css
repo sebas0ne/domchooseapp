@@ -1,0 +1,17 @@
+.btn {
+    padding: 10px 20px;
+    border-radius: 1rem;
+    border: none;
+    background-color: #323232;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .bounce {
+    transition: transform 0.1s ease;
+  }
+  
+  .bounce:active {
+    transform: scale(1.1);
+  }
+  
