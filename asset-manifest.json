@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/domchooseapp/static/css/main.ba7fd14b.css",
+    "main.js": "/domchooseapp/static/js/main.ad63dbf2.js",
+    "service-worker.js": "/domchooseapp/service-worker.js",
+    "index.html": "/domchooseapp/index.html",
+    "main.ba7fd14b.css.map": "/domchooseapp/static/css/main.ba7fd14b.css.map",
+    "main.ad63dbf2.js.map": "/domchooseapp/static/js/main.ad63dbf2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba7fd14b.css",
+    "static/js/main.ad63dbf2.js"
+  ]
+}
