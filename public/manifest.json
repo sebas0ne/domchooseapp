@@ -1,9 +1,24 @@
 {
   "short_name": "DomChoose",
   "name": "DomChoose App",
-  "icons": [],
+  "icons": [
+    {
+      "src": "icons/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#DDD0C8",
-  "background_color": "#DDD0C8"
+  "background_color": "#DDD0C8",
+  "theme_color": "#323232",
+  "orientation": "portrait",
+  "scope": ".",
+  "shortcuts": [],
+  "description": "Make random decisions fun and stylish with DomChooseApp!"
 }
