@@ -15,7 +15,7 @@ const Contact = () => {
         <p>
           For suggestions, collaborations or support, feel free to reach out at:
         </p>
-        <p><strong>Email:</strong> sebas0ne@example.com</p>
+        <p><strong>Email:</strong> sebastian.alban.one@gmail.com</p>
         <p><strong>Twitter:</strong> @sebas0ne</p>
         <button className="btn bounce" onClick={() => navigate("/home")}>Go Back</button>
       </div>

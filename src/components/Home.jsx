@@ -15,7 +15,8 @@ const Home = () => {
     registerOptions,
     showRandom,
     setShowModal,
-    setOptions
+    setOptions,
+    errorMessages
   } = useOptionsManager();
 
   const handleRegister = () => {
@@ -30,6 +31,7 @@ const Home = () => {
   return (
     <div className="home">
       <Menu />
+
       <div className="registered-options">
         {options.map((opt, index) => (
           <button
@@ -50,6 +52,14 @@ const Home = () => {
         placeholder="Enter your options here..."
       />
 
+      {errorMessages.length > 0 && (
+        <div className="error-messages">
+          {errorMessages.map((msg, i) => (
+            <p key={i} className="error-text">{msg}</p>
+          ))}
+        </div>
+      )}
+
       <div className="button-group centered">
         <button className="btn bounce" onClick={handleRegister}>
           REGISTER
@@ -61,7 +71,13 @@ const Home = () => {
         )}
       </div>
 
-      {showModal && <Modal option={selected} onClose={() => setShowModal(false)} options={options} />}
+      {showModal && (
+        <Modal
+          option={selected}
+          onClose={() => setShowModal(false)}
+          options={options}
+        />
+      )}
     </div>
   );
 };
