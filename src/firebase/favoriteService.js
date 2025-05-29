@@ -1,5 +1,5 @@
 // src/firebase/favoriteService.js
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
 import { db, serverTimestamp } from "../firebaseConfig";
 
 const favoriteRef = collection(db, "favoriteLists");
@@ -27,6 +27,15 @@ export const getFavoriteLists = async () => {
     }));
   } catch (error) {
     console.error("Error fetching favorite lists:", error);
+    throw error;
+  }
+};
+
+export const deleteFavoriteList = async (id) => {
+  try {
+    await deleteDoc(doc(db, "favoriteLists", id));
+  } catch (error) {
+    console.error("Error deleting favorite list: ", error);
     throw error;
   }
 };
