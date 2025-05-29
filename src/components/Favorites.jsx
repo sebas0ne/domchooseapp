@@ -4,15 +4,24 @@ import "../styles/Favorites.css";
 import Menu from './Menu';
 import AddFavoriteModal from "../components/modals/AddFavoriteModal";
 import { Eye, Pencil, Trash2, Shuffle } from "lucide-react";
-import { getFavoriteLists, saveFavoriteList } from "../firebase/favoriteService";
+import LoaderOverlay from "../components/loaders/LoaderOverlay";
+import DeleteConfirmationModal from "../components/modals/DeleteConfirmationModal";
+import { getFavoriteLists, saveFavoriteList, deleteFavoriteList } from "../firebase/favoriteService";
+import RandomOptionModal from "../components/modals/RandomOptionModal";
 
 const Favorites = () => {
   const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [listToDelete, setListToDelete] = useState(null);
   const [title, setTitle] = useState("");
   const [options, setOptions] = useState("");
   const [favoriteLists, setFavoriteLists] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isFetching, setIsFetching] = useState(true);
+
+  const [showShuffleModal, setShowShuffleModal] = useState(false);
+  const [shuffledOptions, setShuffledOptions] = useState([]);
+  const [shuffledOption, setShuffledOption] = useState("");
 
   useEffect(() => {
     fetchFavorites();
@@ -51,6 +60,34 @@ const Favorites = () => {
     }
   };
 
+  const handleDeleteClick = (listId) => {
+    setListToDelete(listId);
+    setShowDeleteModal(true);
+  };
+  
+  const handleConfirmDelete = async () => {
+    if (!listToDelete) return;
+    setIsLoading(true);
+    try {
+      await deleteFavoriteList(listToDelete);
+      setFavoriteLists(prev => prev.filter(list => list.id !== listToDelete));
+    } catch (error) {
+      console.error("Failed to delete list:", error);
+    } finally {
+      setShowDeleteModal(false);
+      setListToDelete(null);
+      setIsLoading(false);
+    }
+  };
+
+  const handleShuffle = (optionsArray) => {
+    if (!optionsArray || optionsArray.length < 2) return;
+    const randomIndex = Math.floor(Math.random() * optionsArray.length);
+    setShuffledOption(optionsArray[randomIndex]);
+    setShuffledOptions(optionsArray);
+    setShowShuffleModal(true);
+  };
+
   return (
     <div className="favorites">
       <Menu />
@@ -80,9 +117,9 @@ const Favorites = () => {
                         <button title="VIEW"><Eye size={16} /></button>
                         <div className="button-column">
                           <button title="EDIT"><Pencil size={16} /></button>
-                          <button title="SHUFFLE"><Shuffle size={16} /></button>
+                          <button title="SHUFFLE" onClick={() => handleShuffle(list.options)}><Shuffle size={16} /></button>
                         </div>
-                        <button title="DELETE"><Trash2 size={16} /></button>
+                        <button title="DELETE" onClick={() => handleDeleteClick(list.id)}><Trash2 size={16} /></button>
                     </div>
                   </div>
            ))}
@@ -100,6 +137,25 @@ const Favorites = () => {
           setIsLoading={setIsLoading}
         />
       )}
+
+      {showDeleteModal && (
+        <DeleteConfirmationModal
+          onClose={() => setShowDeleteModal(false)}
+          onConfirm={handleConfirmDelete}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
+        />
+      )}
+
+      {showShuffleModal && (
+        <RandomOptionModal
+          option={shuffledOption}
+          onClose={() => setShowShuffleModal(false)}
+          options={shuffledOptions}
+        />
+      )}
+
+      {isLoading && <LoaderOverlay />}
     </div>
   );
 };

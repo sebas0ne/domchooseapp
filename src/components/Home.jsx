@@ -1,7 +1,7 @@
 // src/components/Home.jsx
 import React, { useState } from "react";
 import "../styles/Home.css";
-import Modal from "../components/modals/Modal";
+import RandomOptionModal from "../components/modals/RandomOptionModal";
 import Menu from './Menu';
 import useOptionsManager from "../hooks/useOptionsManager";
 
@@ -72,7 +72,7 @@ const Home = () => {
       </div>
 
       {showModal && (
-        <Modal
+        <RandomOptionModal
           option={selected}
           onClose={() => setShowModal(false)}
           options={options}

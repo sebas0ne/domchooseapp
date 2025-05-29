@@ -1,6 +1,5 @@
 // src/components/modals/AddFavoriteModal.jsx
 import React from "react";
-import LoaderOverlay from "../loaders/LoaderOverlay";
 import "../../styles/modals/AddFavoriteModal.css";
 
 const AddFavoriteModal = ({
@@ -10,7 +9,6 @@ const AddFavoriteModal = ({
     setTitle,
     options,
     setOptions,
-    isLoading
   }) => {
     const handleSave = () => {
       if (!title.trim() || !options.trim()) return;
@@ -19,11 +17,10 @@ const AddFavoriteModal = ({
 
   return (
     <>
-        {isLoading && <LoaderOverlay />}
         <div className="modal-overlay" onClick={onClose}>
         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-            <h3 className="modal-title">ADD FAVORITE LIST</h3>
+            <div className="modal-header-add">
+            <h3 className="modal-title-add">ADD FAVORITE LIST</h3>
             <button className="close-button" onClick={onClose}>×</button>
             </div>
 

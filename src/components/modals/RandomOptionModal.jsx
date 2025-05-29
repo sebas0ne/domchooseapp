@@ -1,8 +1,8 @@
 // src/components/modals/Modal.jsx
 import React, { useEffect, useState } from "react";
-import "../../styles/modals/Modal.css";
+import "../../styles/modals/RandomOptionModal.css";
 
-const Modal = ({ option, onClose, options }) => {
+const RandomOptionModal = ({ option, onClose, options }) => {
   const [isRevealing, setIsRevealing] = useState(true);
   const [displayText, setDisplayText] = useState("");
 
@@ -47,4 +47,4 @@ const Modal = ({ option, onClose, options }) => {
   );
 };
 
-export default Modal;
+export default RandomOptionModal;
