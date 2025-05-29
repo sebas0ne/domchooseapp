@@ -1,7 +1,7 @@
+/* src/styles/App.css */
 body {
-    font-family: sans-serif;
-    background-color: #DDD0C8;
-    color: #323232;
-    justify-content: center;
-    align-items: center;
-  }
+  padding: 3rem;
+  font-family: "Century Gothic";
+  background-color: #DDD0C8;
+  color: #323232;
+}
