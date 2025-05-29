@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>Redirecting...</title>
-    <meta http-equiv="refresh" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- ✅ Viewport correctamente definido -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- ✅ Script para redirigir correctamente según React Router -->
     <script>
-      // Soporte para React Router
       const redirectTo = sessionStorage.redirect || "/";
       sessionStorage.removeItem("redirect");
       location.replace(redirectTo);
