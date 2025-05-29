@@ -8,16 +8,12 @@
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Posiciona el creador arriba a la derecha */
 .creator {
-  position: absolute;
-  top: 1rem;
-  right: 1.5rem;
+  align-items: center;
   font-weight: bold;
   font-size: 1rem;
 }
 
-/* Contenedor del contenido central */
 .center-content {
   position: absolute;
   bottom: 2rem;
@@ -28,7 +24,6 @@
   align-items: center;
 }
 
-/* Botón "Get into" */
 .enter-button {
   padding: 1rem 2.5rem;
   font-size: 1rem;
@@ -46,7 +41,6 @@
   transform: scale(0.95);
 }
 
-/* Flechas con animación */
 .arrows span {
   display: block;
   font-size: 1.5rem;

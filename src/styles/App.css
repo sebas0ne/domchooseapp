@@ -1,11 +1,7 @@
 body {
-    margin: 0;
     font-family: sans-serif;
     background-color: #DDD0C8;
     color: #323232;
-    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
   }
-  

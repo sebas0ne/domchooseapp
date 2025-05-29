@@ -1,10 +1,10 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
 import './styles/App.css';
-import Loader from './components/Loader';
+import Loader from './components/loaders/Loader';
 import LandingPage from './components/LandingPage';
 import Home from './components/Home';
-import About from "./components/About";
+import Favorites from "./components/Favorites";
 import Contact from "./components/Contact";
 
 import { Routes, Route, useLocation } from 'react-router-dom';
@@ -26,7 +26,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/Favorites" element={<Favorites />} />
       <Route path="/contact" element={<Contact />} />
     </Routes>
   );

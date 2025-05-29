@@ -15,7 +15,6 @@
   border: none;
   border-radius: 1rem;
   font-size: 1.1rem;
-  resize: vertical;
   background-color: #f9f9f9;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
@@ -76,15 +75,6 @@
 
 .option-btn:hover {
   background-color: #4a4a4a;
-}
-
-.duplicate-warning {
-  color: #a94442;
-  background-color: #f2dede;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
 }
 
 .error-messages {
