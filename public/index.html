@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#DDD0C8" />
-  <link rel="manifest" href="manifest.json" />
-  <title>domchooseapp</title>
-</head>
-<body>
-  <div id="root"></div>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="manifest" href="manifest.json" />
+    <title>domchooseapp</title>
+    <script>
+      // Soporte para React Router
+      if (location.pathname !== "/" && !location.pathname.startsWith("/?")) {
+        const redirectTo = sessionStorage.redirect || "/";
+        sessionStorage.redirect = location.pathname;
+      };
+    </script>
+  </head>
+<body id="body">
 </body>
 </html>

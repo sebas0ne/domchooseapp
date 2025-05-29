@@ -38,9 +38,18 @@
   }
 
   .close-button {
-    background-color: #323232;
     border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin: 0.2rem;
+    background-color: #323232;
     color: white;
   }
 

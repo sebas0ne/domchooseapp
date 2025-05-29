@@ -54,42 +54,39 @@ const Favorites = () => {
   return (
     <div className="favorites">
       <Menu />
-      <div className="favorites-container">
+      <div className="favorite-grid">
         <div className="favorites-header">
           <h2 className="favorites-title">Favorites</h2>
           <button className="add-button" onClick={() => setShowModal(true)}>+</button>
         </div>
-
-        <div className="favorite-grid">
-        {isFetching
-            ? Array.from({ length: 8 }).map((_, i) => (
-                <div className="favorite-card-skeleton" key={`skeleton-${i}`}>
-                  <h3 className="card-title">LOADING...</h3>
-                  <div className="card-buttons">
-                      <button title="VIEW"><Eye size={16} /></button>
-                      <div className="button-column">
-                        <button title="EDIT"><Pencil size={16} /></button>
-                        <button title="SHUFFLE"><Shuffle size={16} /></button>
-                      </div>
-                      <button title="DELETE"><Trash2 size={16} /></button>
+          {isFetching
+              ? Array.from({ length: 7 }).map((_, i) => (
+                  <div className="favorite-card-skeleton" key={`skeleton-${i}`}>
+                    <h3 className="card-title">LOADING...</h3>
+                    <div className="card-buttons">
+                        <button title="VIEW"><Eye size={16} /></button>
+                        <div className="button-column">
+                          <button title="EDIT"><Pencil size={16} /></button>
+                          <button title="SHUFFLE"><Shuffle size={16} /></button>
+                        </div>
+                        <button title="DELETE"><Trash2 size={16} /></button>
+                    </div>
                   </div>
-                </div>
-              ))
-            : favoriteLists.map((list, index) => (
-                <div className="favorite-card" key={list.id || index}>
-                  <h3 className="card-title">{list.title.toUpperCase()}</h3>
-                  <div className="card-buttons">
-                      <button title="VIEW"><Eye size={16} /></button>
-                      <div className="button-column">
-                        <button title="EDIT"><Pencil size={16} /></button>
-                        <button title="SHUFFLE"><Shuffle size={16} /></button>
-                      </div>
-                      <button title="DELETE"><Trash2 size={16} /></button>
+                ))
+              : favoriteLists.map((list, index) => (
+                  <div className="favorite-card" key={list.id || index}>
+                    <h3 className="card-title">{list.title.toUpperCase()}</h3>
+                    <div className="card-buttons">
+                        <button title="VIEW"><Eye size={16} /></button>
+                        <div className="button-column">
+                          <button title="EDIT"><Pencil size={16} /></button>
+                          <button title="SHUFFLE"><Shuffle size={16} /></button>
+                        </div>
+                        <button title="DELETE"><Trash2 size={16} /></button>
+                    </div>
                   </div>
-                </div>
-              ))}
+           ))}
         </div>
-      </div>
 
       {showModal && (
         <AddFavoriteModal
