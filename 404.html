@@ -6,8 +6,9 @@
     <meta http-equiv="refresh" content="0; url=/" />
     <script>
       // Soporte para React Router
-      var redirectTo = location.pathname + location.search + location.hash;
-      window.location.replace("/" + "#" + redirectTo);
+      const redirectTo = sessionStorage.redirect || "/";
+      sessionStorage.removeItem("redirect");
+      location.pathname.replace(redirectTo);
     </script>
   </head>
   <body>
