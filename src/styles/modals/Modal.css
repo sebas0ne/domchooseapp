@@ -1,3 +1,4 @@
+/* src/styles/modals/modal.css */
 .modal-title {
   position: absolute;
   top: 0.5rem;
@@ -31,8 +32,8 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   color: #323232;
   text-align: center;
-  min-width: 300px;
-  max-width: 90%;
+  min-width: 80%;
+  max-width: 85%;
   animation: scaleIn 0.3s ease forwards;
 }
 

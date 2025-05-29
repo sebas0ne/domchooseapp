@@ -1,6 +1,6 @@
-// src/components/Modal.jsx
+// src/components/modals/Modal.jsx
 import React, { useEffect, useState } from "react";
-import "../styles/Modal.css";
+import "../../styles/modals/Modal.css";
 
 const Modal = ({ option, onClose, options }) => {
   const [isRevealing, setIsRevealing] = useState(true);

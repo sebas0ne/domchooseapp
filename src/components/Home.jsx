@@ -1,7 +1,7 @@
 // src/components/Home.jsx
 import React, { useState } from "react";
 import "../styles/Home.css";
-import Modal from "./Modal";
+import Modal from "../components/modals/Modal";
 import Menu from './Menu';
 import useOptionsManager from "../hooks/useOptionsManager";
 
@@ -49,7 +49,7 @@ const Home = () => {
         className="option-input"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        placeholder="Enter your options here..."
+        placeholder="ENTER OPTIONS SEPARATED BY COMMAS OR NEW LINES"
       />
 
       {errorMessages.length > 0 && (

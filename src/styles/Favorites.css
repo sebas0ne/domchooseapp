@@ -1,0 +1,125 @@
+/* src/styles/Favorites.css */
+
+  .favorites {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .favorites-header {
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .favorites-header h2 {
+    font-size: 2rem;
+    color: #323232;
+    margin: 0;
+  }
+
+  .add-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #323232;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+  .add-button:hover {
+    transform: scale(1.1);
+  }
+
+  .favorite-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+  }
+
+  .favorite-card {
+    background-color: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .favorite-card h3 {
+    color: #323232;
+    font-size: 1.2rem;
+  }
+
+  .card-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+  }
+
+  .card-buttons button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #323232;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin: 0.2rem;
+  }
+
+  .card-buttons button:hover {
+    background-color: #555;
+  }
+
+  .favorite-card-skeleton {
+    background-color: #fff;
+    border-radius: 1rem;
+    animation: shimmer 1.5s infinite;
+    padding: 1.5rem;
+    text-align: center;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -300px 0;
+    }
+    100% {
+      background-position: 300px 0;
+    }
+  }
+  
+  .favorite-card-skeleton {
+    background: linear-gradient(
+      to right,
+      #fff 8%,
+      #e4d9d2 18%,
+      #fff 33%
+    );
+    background-size: 800px 104px;
+  }
+
+  @media (max-width: 900px) {
+    .favorite-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .favorite-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }

@@ -1,3 +1,4 @@
+// src/Menu.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Menu.css";
@@ -32,7 +33,7 @@ const Menu = () => {
       <div className={`overlay-menu ${isOpen ? "active" : ""}`}>
         <ul>
           <li onClick={() => handleNavigate("/home")}>Home</li>
-          <li onClick={() => handleNavigate("/about")}>About</li>
+          <li onClick={() => handleNavigate("/favorites")}>Favorites</li>
           <li onClick={() => handleNavigate("/contact")}>Contact</li>
         </ul>
       </div>
