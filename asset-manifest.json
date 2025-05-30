@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/domchooseapp/static/css/main.915d7fc1.css",
+    "main.css": "/domchooseapp/static/css/main.ee87f602.css",
     "main.js": "/domchooseapp/static/js/main.882dfebf.js",
     "service-worker.js": "/domchooseapp/service-worker.js",
     "index.html": "/domchooseapp/index.html",
-    "main.915d7fc1.css.map": "/domchooseapp/static/css/main.915d7fc1.css.map",
+    "main.ee87f602.css.map": "/domchooseapp/static/css/main.ee87f602.css.map",
     "main.882dfebf.js.map": "/domchooseapp/static/js/main.882dfebf.js.map"
   },
   "entrypoints": [
-    "static/css/main.915d7fc1.css",
+    "static/css/main.ee87f602.css",
     "static/js/main.882dfebf.js"
   ]
 }
