@@ -1,7 +1,7 @@
 // src/components/Contact.jsx
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Menu from './Menu';
+import Menu from './commons/Menu';
 import "../styles/Page.css";
 
 const Contact = () => {

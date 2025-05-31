@@ -1,7 +1,7 @@
 // src/Menu.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Menu.css";
+import "../../styles/commons/Menu.css";
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);

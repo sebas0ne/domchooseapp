@@ -1,5 +1,7 @@
 // src/components/modals/AddFavoriteModal.jsx
 import React from "react";
+import ButtonIcon from '../../components/commons/ButtonIcon';
+import { X } from "lucide-react";
 import "../../styles/modals/AddFavoriteModal.css";
 
 const AddFavoriteModal = ({
@@ -18,10 +20,10 @@ const AddFavoriteModal = ({
   return (
     <>
         <div className="modal-overlay" onClick={onClose}>
-        <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="modal-content-add" onClick={(e) => e.stopPropagation()}>
             <div className="modal-header-add">
             <h3 className="modal-title-add">ADD FAVORITE LIST</h3>
-            <button className="close-button" onClick={onClose}>×</button>
+            <ButtonIcon title="CLOSE" icon={X} onClick={onClose} size={16} className="iconButton" />
             </div>
 
             <div className="modal-body">
