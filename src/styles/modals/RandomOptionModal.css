@@ -1,5 +1,5 @@
 /* src/styles/modals/modal.css */
-.modal-title {
+.modal-title-random {
   position: absolute;
   top: 0.5rem;
   left: 1rem;
@@ -24,7 +24,7 @@
   animation: fadeIn 0.3s ease forwards;
 }
 
-.modal-content {
+.modal-content-random {
   position: relative;
   background-color: #DDD0C8;
   padding: 1.5rem;
@@ -68,6 +68,13 @@
 .modal-option {
   font-size: 2.25rem;
   font-weight: bold;
+}
+
+.modal-header-random {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @keyframes scaleIn {

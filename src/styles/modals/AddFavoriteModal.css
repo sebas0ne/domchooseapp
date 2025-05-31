@@ -12,7 +12,7 @@
     z-index: 999;
   }
 
-  .modal-content {
+  .modal-content-add {
     background: #DDD0C8;
     padding: 2rem;
     border-radius: 1rem;
@@ -35,22 +35,6 @@
     color: #323232;
     font-weight: bold;
     margin: 0;
-  }
-
-  .close-button {
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    margin: 0.2rem;
-    background-color: #323232;
-    color: white;
   }
 
   .modal-body {

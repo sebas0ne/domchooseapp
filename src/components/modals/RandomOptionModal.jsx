@@ -1,5 +1,7 @@
 // src/components/modals/Modal.jsx
 import React, { useEffect, useState } from "react";
+import { X } from "lucide-react";
+import ButtonIcon from '../../components/commons/ButtonIcon';
 import "../../styles/modals/RandomOptionModal.css";
 
 const RandomOptionModal = ({ option, onClose, options }) => {
@@ -30,14 +32,13 @@ const RandomOptionModal = ({ option, onClose, options }) => {
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header">
-
-          </div>
-          <h2 className="modal-title">
+      <div className="modal-content-random" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-header-random">
+            <h2 className="modal-title-random">
               {isRevealing ? "Choosing for you..." : "You should go with:"}
             </h2>
-            <button className="close-button" onClick={onClose}>×</button>
+            <ButtonIcon title="CLOSE" icon={X} onClick={onClose} size={16} className="close-button" />
+          </div>
 
           <p className={`modal-option ${isRevealing ? "spinner-text" : "reveal-text"}`}>
             {displayText}

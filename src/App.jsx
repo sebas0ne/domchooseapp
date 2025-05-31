@@ -1,7 +1,7 @@
 // src/App.jsx
 import React, { useState, useEffect } from 'react';
 import './styles/App.css';
-import Loader from './components/loaders/Loader';
+import LoaderOverlay from './components/loaders/LoaderOverlay';
 import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import Favorites from "./components/Favorites";
@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   if (loading && location.pathname === '/') {
-    return <Loader />;
+    return <LoaderOverlay />;
   }
 
   return (

@@ -1,13 +1,14 @@
 // src/pages/Favorites.jsx
 import React, { useEffect, useState } from "react";
 import "../styles/Favorites.css";
-import Menu from './Menu';
+import Menu from './commons/Menu';
+import ButtonIcon from '../components/commons/ButtonIcon';
 import AddFavoriteModal from "../components/modals/AddFavoriteModal";
-import { Eye, Pencil, Trash2, Shuffle } from "lucide-react";
+import RandomOptionModal from "../components/modals/RandomOptionModal";
 import LoaderOverlay from "../components/loaders/LoaderOverlay";
 import DeleteConfirmationModal from "../components/modals/DeleteConfirmationModal";
+import { Eye, Pencil, Trash2, Shuffle, Plus } from "lucide-react";
 import { getFavoriteLists, saveFavoriteList, deleteFavoriteList } from "../firebase/favoriteService";
-import RandomOptionModal from "../components/modals/RandomOptionModal";
 
 const Favorites = () => {
   const [showModal, setShowModal] = useState(false);
@@ -94,19 +95,19 @@ const Favorites = () => {
       <div className="favorite-grid">
         <div className="favorites-header">
           <h2 className="favorites-title">Favorites</h2>
-          <button className="add-button" onClick={() => setShowModal(true)}>+</button>
+          <ButtonIcon className="iconButton" onClick={() => setShowModal(true)} icon={Plus} size={16} />
         </div>
           {isFetching
               ? Array.from({ length: 7 }).map((_, i) => (
                   <div className="favorite-card-skeleton" key={`skeleton-${i}`}>
                     <h3 className="card-title">LOADING...</h3>
                     <div className="card-buttons">
-                        <button title="VIEW"><Eye size={16} /></button>
+                        <ButtonIcon title="VIEW" icon={Eye} size={16} className="iconButton" />
                         <div className="button-column">
-                          <button title="EDIT"><Pencil size={16} /></button>
-                          <button title="SHUFFLE"><Shuffle size={16} /></button>
+                          <ButtonIcon title="EDIT" icon={Pencil} size={16} className="iconButton" />
+                          <ButtonIcon title="SHUFFLE" icon={Shuffle} size={16} className="iconButton" />
                         </div>
-                        <button title="DELETE"><Trash2 size={16} /></button>
+                        <ButtonIcon title="DELETE" icon={Trash2} size={16} className="iconButton" />
                     </div>
                   </div>
                 ))
@@ -114,12 +115,12 @@ const Favorites = () => {
                   <div className="favorite-card" key={list.id || index}>
                     <h3 className="card-title">{list.title.toUpperCase()}</h3>
                     <div className="card-buttons">
-                        <button title="VIEW"><Eye size={16} /></button>
+                        <ButtonIcon title="VIEW" icon={Eye} size={16} className="iconButton" />
                         <div className="button-column">
-                          <button title="EDIT"><Pencil size={16} /></button>
-                          <button title="SHUFFLE" onClick={() => handleShuffle(list.options)}><Shuffle size={16} /></button>
+                          <ButtonIcon title="EDIT" icon={Pencil} size={16} className="iconButton" />
+                          <ButtonIcon title="SHUFFLE" onClick={() => handleShuffle(list.options)} icon={Shuffle} size={16} className="iconButton" />
                         </div>
-                        <button title="DELETE" onClick={() => handleDeleteClick(list.id)}><Trash2 size={16} /></button>
+                        <ButtonIcon title="DELETE" onClick={() => handleDeleteClick(list.id)} icon={Trash2} size={16} className="iconButton" />
                     </div>
                   </div>
            ))}

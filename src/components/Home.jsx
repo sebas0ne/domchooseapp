@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
 import RandomOptionModal from "../components/modals/RandomOptionModal";
-import Menu from './Menu';
+import Menu from './commons/Menu';
 import useOptionsManager from "../hooks/useOptionsManager";
 
 const Home = () => {
