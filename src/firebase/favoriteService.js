@@ -1,20 +1,23 @@
 // src/firebase/favoriteService.js
-import { collection, addDoc, getDocs, doc, deleteDoc } from "firebase/firestore";
-import { db, serverTimestamp } from "../firebaseConfig";
+import { collection, addDoc, getDocs, doc, deleteDoc, setDoc } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 
 const favoriteRef = collection(db, "favoriteLists");
 
-export const saveFavoriteList = async (title, optionsArray) => {
-  try {
-    const docRef = await addDoc(collection(db, "favoriteLists"), {
-      title,
-      options: optionsArray,
-      createdAt: serverTimestamp()
-    });
-    return docRef.id;
-  } catch (error) {
-    console.error("Error adding favorite list: ", error);
-    throw error;
+export const saveFavoriteList = async (title, options, id = null) => {
+  if (typeof title !== "string" || !Array.isArray(options)) {
+    throw new Error("Invalid title or options.");
+  }
+  const data = {
+    title,
+    options,
+  };
+  if (id) {
+    const listRef = doc(db, "favoriteLists", id);
+    await setDoc(listRef, data);
+  } else {
+    const collectionRef = collection(db, "favoriteLists");
+    await addDoc(collectionRef, data);
   }
 };
 

@@ -35,6 +35,10 @@
   min-width: 80%;
   max-width: 85%;
   animation: scaleIn 0.3s ease forwards;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
 }
 
 .modal-title {

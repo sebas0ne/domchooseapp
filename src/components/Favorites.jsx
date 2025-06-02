@@ -1,14 +1,17 @@
 // src/components/Favorites.jsx
 import React, { useEffect, useState } from "react";
 import "../styles/Favorites.css";
+import 'react-toastify/dist/ReactToastify.css';
 import Menu from './commons/Menu';
 import ButtonIcon from '../components/commons/ButtonIcon';
 import AddFavoriteModal from "../components/modals/AddFavoriteModal";
 import RandomOptionModal from "../components/modals/RandomOptionModal";
+import EditFavoriteModal from "../components/modals/EditFavoriteModal";
 import LoaderOverlay from "../components/loaders/LoaderOverlay";
 import DeleteConfirmationModal from "../components/modals/DeleteConfirmationModal";
-import { Eye, Pencil, Trash2, Shuffle, Plus } from "lucide-react";
+import { toast, ToastContainer, Slide } from 'react-toastify';
 import { getFavoriteLists, saveFavoriteList, deleteFavoriteList } from "../firebase/favoriteService";
+import { Eye, Pencil, Trash2, Shuffle, Plus } from "lucide-react";
 
 const Favorites = () => {
   const [showModal, setShowModal] = useState(false);
@@ -19,6 +22,9 @@ const Favorites = () => {
   const [favoriteLists, setFavoriteLists] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isFetching, setIsFetching] = useState(true);
+  const [showEditModal, setShowEditModal] = useState(false);
+  const [listToEdit, setListToEdit] = useState(null);
+
 
   const [showShuffleModal, setShowShuffleModal] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState([]);
@@ -34,7 +40,7 @@ const Favorites = () => {
       const lists = await getFavoriteLists();
       setFavoriteLists(lists);
     } catch (error) {
-      console.error("Failed to fetch favorite lists:", error);
+      toast.error("Error getting favorites list!");
     } finally {
       setIsFetching(false);
     }
@@ -55,9 +61,10 @@ const Favorites = () => {
       setOptions("");
       fetchFavorites();
     } catch (err) {
-      console.error("Error saving favorite list:", err);
+      toast.error("Error saving to favorites!");
     } finally {
       setIsLoading(false);
+      toast.success("Option saved to favorites!");
     }
   };
 
@@ -73,11 +80,12 @@ const Favorites = () => {
       await deleteFavoriteList(listToDelete);
       setFavoriteLists(prev => prev.filter(list => list.id !== listToDelete));
     } catch (error) {
-      console.error("Failed to delete list:", error);
+      toast.error("Error deleting list!");
     } finally {
       setShowDeleteModal(false);
       setListToDelete(null);
       setIsLoading(false);
+      toast.success("List successfully deleted!");
     }
   };
 
@@ -87,6 +95,26 @@ const Favorites = () => {
     setShuffledOption(optionsArray[randomIndex]);
     setShuffledOptions(optionsArray);
     setShowShuffleModal(true);
+  };
+
+  const handleEditClick = (list) => {
+    setListToEdit(list);
+    setShowEditModal(true);
+  };
+
+  const handleSaveEditedList = async (updatedTitle, updatedOptions) => {
+    if (!listToEdit?.id) return;
+    setIsLoading(true);
+    try {
+      await saveFavoriteList(updatedTitle, updatedOptions, listToEdit.id);
+      toast.success("List updated successfully!");
+      fetchFavorites();
+      setShowEditModal(false);
+    } catch (err) {
+      toast.error("Error updating list!");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -117,7 +145,7 @@ const Favorites = () => {
                     <div className="card-buttons">
                         <ButtonIcon title="VIEW" icon={Eye} size={16} className="iconButton" />
                         <div className="button-column">
-                          <ButtonIcon title="EDIT" icon={Pencil} size={16} className="iconButton" />
+                          <ButtonIcon title="EDIT" onClick={() => handleEditClick(list)} icon={Pencil} size={16} className="iconButton" />
                           <ButtonIcon title="SHUFFLE" onClick={() => handleShuffle(list.options)} icon={Shuffle} size={16} className="iconButton" />
                         </div>
                         <ButtonIcon title="DELETE" onClick={() => handleDeleteClick(list.id)} icon={Trash2} size={16} className="iconButton" />
@@ -156,7 +184,30 @@ const Favorites = () => {
         />
       )}
 
+      {showEditModal && listToEdit && (
+        <EditFavoriteModal
+          initialTitle={listToEdit.title}
+          initialOptions={listToEdit.options}
+          onClose={() => setShowEditModal(false)}
+          onSave={handleSaveEditedList}
+          isLoading={isLoading}
+          setIsLoading={setIsLoading}
+        />
+      )}
+
       {isLoading && <LoaderOverlay />}
+      <ToastContainer
+        position="bottom-center"
+        autoClose={1500}
+        hideProgressBar={true}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Slide}
+      />
     </div>
   );
 };
