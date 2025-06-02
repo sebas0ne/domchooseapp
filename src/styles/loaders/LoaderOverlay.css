@@ -10,33 +10,33 @@
     align-items: center;
     z-index: 1000;
   }
-  
+
   .circle {
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  
+
   .outer {
-    width: 120px;
-    height: 120px;
+    width: 7.5rem;
+    height: 7.5rem;
     background-color: #DDD0C8;
     animation: pulse 1.2s infinite ease-in-out;
   }
-  
+
   .middle {
-    width: 70px;
-    height: 70px;
+    width: 5rem;
+    height: 5rem;
     background-color: #AAA095;
   }
-  
+
   .inner {
-    width: 30px;
-    height: 30px;
+    width: 2rem;
+    height: 2rem;
     background-color: #323232;
   }
-  
+
   @keyframes pulse {
     0%, 100% {
       transform: scale(1);
@@ -47,4 +47,3 @@
       opacity: 1;
     }
   }
-  
