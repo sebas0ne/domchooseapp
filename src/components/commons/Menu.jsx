@@ -1,4 +1,4 @@
-// src/Menu.jsx
+// src/components/commons/Menu.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../styles/commons/Menu.css";
@@ -20,7 +20,7 @@ const Menu = () => {
   };
 
   return (
-    <>
+    <div className="menu-content" role="button">
       <div
         className={`menu-icon ${isOpen ? "open" : ""}`}
         onClick={toggleMenu}
@@ -37,7 +37,7 @@ const Menu = () => {
           <li onClick={() => handleNavigate("/contact")}>Contact</li>
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 

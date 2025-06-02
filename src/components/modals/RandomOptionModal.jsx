@@ -1,8 +1,9 @@
 // src/components/modals/Modal.jsx
 import React, { useEffect, useState } from "react";
-import { X } from "lucide-react";
+import { X , Share} from "lucide-react";
 import ButtonIcon from '../../components/commons/ButtonIcon';
 import "../../styles/modals/RandomOptionModal.css";
+import { generateAndShareCanvas } from "../../components/utlils/CanvasGenerator"; // ajusta la ruta según tu estructura
 
 const RandomOptionModal = ({ option, onClose, options }) => {
   const [isRevealing, setIsRevealing] = useState(true);
@@ -33,16 +34,18 @@ const RandomOptionModal = ({ option, onClose, options }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content-random" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-header-random">
-            <h2 className="modal-title-random">
-              {isRevealing ? "Choosing for you..." : "You should go with:"}
-            </h2>
-            <ButtonIcon title="CLOSE" icon={X} onClick={onClose} size={16} className="close-button" />
-          </div>
-
-          <p className={`modal-option ${isRevealing ? "spinner-text" : "reveal-text"}`}>
-            {displayText}
-          </p>
+        <div className="modal-header-random">
+          <h2 className="modal-title-random">
+            {isRevealing ? "Choosing for you..." : "You should go with:"}
+          </h2>
+          <ButtonIcon title="CLOSE" icon={X} onClick={onClose} size={16} className="close-button" />
+        </div>
+        <p className={`modal-option ${isRevealing ? "spinner-text" : "reveal-text"}`}>
+          {displayText}
+        </p>
+        {!isRevealing && (
+          <ButtonIcon title="CLOSE" icon={Share} onClick={() => generateAndShareCanvas(displayText, 1)} size={16} className="iconButton" />
+        )}
       </div>
     </div>
   );

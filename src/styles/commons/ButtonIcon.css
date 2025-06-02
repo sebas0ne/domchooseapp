@@ -1,8 +1,8 @@
 /* src/styles/commons/ButtonIcon.css */
 .iconButton {
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     display: flex;
@@ -17,4 +17,28 @@
 
 .iconButton:hover {
   background-color: #555;
+}
+
+.close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background-color: #323232;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  aspect-ratio: 1 / 1;
+}
+
+.close-button:hover {
+  background-color: #4a4a4a;
+}
+
+.close-button:active {
+  transform: scale(0.9);
 }

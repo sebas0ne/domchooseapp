@@ -1,4 +1,4 @@
-// src/pages/Favorites.jsx
+// src/components/Favorites.jsx
 import React, { useEffect, useState } from "react";
 import "../styles/Favorites.css";
 import Menu from './commons/Menu';
