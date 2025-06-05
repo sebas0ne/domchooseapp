@@ -4,6 +4,7 @@ import "../../styles/modals/EditFavoriteModal.css";
 import { X } from "lucide-react";
 import { toast } from "react-toastify";
 import ButtonIcon from '../../components/commons/ButtonIcon';
+import ButtonText from "../commons/ButtonText";
 
 const EditFavoriteModal = ({ onClose, onSave, initialTitle, initialOptions }) => {
   const [options, setOptions] = useState(initialOptions || []);
@@ -40,30 +41,20 @@ const EditFavoriteModal = ({ onClose, onSave, initialTitle, initialOptions }) =>
           <ButtonIcon title="CLOSE" icon={X} onClick={onClose} size={16} className="close-button" />
         </div>
         <input
-          className="option-input"
+          className="optionInput"
           placeholder="NUEVA OPCIÓN"
           value={newOption}
+          name="Edit alias"
           onChange={(e) => setNewOption(e.target.value)}
         />
-        <button className="button-save-edit" onClick={handleAddOption}>
-          SAVE OPTION
-        </button>
+        <ButtonText className="btnText" title={'SAVE OPTION'} onClick={handleAddOption}/>
         <div className="registered-options">
           {options.map((opt, i) => (
-            <button
-              key={i}
-              className="btn option-btn"
-              onClick={() => handleRemoveOption(opt)}
-              title="Click to remove"
-            >
-              {opt}
-            </button>
+            <ButtonText className="btnText" key={i} title={opt} onClick={() => handleRemoveOption(opt)}/>
           ))}
         </div>
         <div className="button-group centered">
-          <button className="button-save-edit" onClick={handleEditList}>
-            EDIT LIST
-          </button>
+          <ButtonText className="btnText" title={'EDIT LIST'} onClick={handleEditList}/>
         </div>
       </div>
     </div>

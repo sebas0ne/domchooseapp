@@ -32,6 +32,6 @@ Una Progressive Web App (PWA) intuitiva y responsiva que te ayuda a decidir entr
 ---
 
 ## 🖼️ Estética y UX
-- Paleta visual: fondo beige `#DDD0C8`, botones y texto en gris oscuro `#323232`.
+- Paleta visual: fondo beige `#FFCE32`, botones y texto en gris oscuro `#323232`.
 - Botones redondeados, sombras suaves y tipografía clara.
 - Diseño totalmente responsive (mobile-first).

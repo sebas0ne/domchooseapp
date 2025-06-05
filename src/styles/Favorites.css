@@ -8,7 +8,6 @@
   .favorites-header h2 {
     font-size: 2rem;
     flex-direction: column;
-    color: #323232;
     margin: 0;
   }
 
@@ -31,7 +30,6 @@
   }
 
   .favorite-card h3 {
-    color: #323232;
     font-size: 1.2rem;
   }
 

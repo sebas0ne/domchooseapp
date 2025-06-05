@@ -11,20 +11,24 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
     margin: 0.2rem;
-    background-color: #323232;
-    color: white;
+    background-color: var(--background-color-button-principal);
+    color: var(--color-button-principal);
 }
 
 .iconButton:hover {
-  background-color: #555;
+  background-color: var(--background-color-principal);
+  color: var(--background-color-button-principal);
+  border-style: solid;
+  border-color: var(--background-color-button-principal);
+  border-width: 0.2rem;
 }
 
 .close-button {
   position: absolute;
   top: 0.5rem;
   right: 1rem;
-  background-color: #323232;
-  color: #fff;
+  background-color: var(--background-color-button-principal);
+  color: var(--color-button-principal);
   border: none;
   border-radius: 50%;
   font-size: 1rem;
@@ -36,9 +40,9 @@
 }
 
 .close-button:hover {
-  background-color: #4a4a4a;
-}
-
-.close-button:active {
-  transform: scale(0.9);
+  background-color: var(--background-color-principal);
+  color: var(--background-color-button-principal);
+  border-style: solid;
+  border-color: var(--background-color-button-principal);
+  border-width: 0.2rem;
 }

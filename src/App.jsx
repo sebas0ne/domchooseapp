@@ -6,6 +6,7 @@ import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import Favorites from "./components/Favorites";
 import Contact from "./components/Contact";
+import "../src/styles/Variables.css";
 
 import { Routes, Route, useLocation } from 'react-router-dom';
 

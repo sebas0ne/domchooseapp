@@ -1,0 +1,10 @@
+/* src/styles/variables.css */
+:root {
+  --background-color-principal: #FFCE32;
+  --color-text-principal: #000000;
+  --background-color-button-principal: #1D63FF;
+  --color-button-principal: #fff;
+  --background-color-button-hover: #FFCE32;
+  --color-button-hover: #1D63FF;
+  --border-color-button-hover: #1D63FF;
+}

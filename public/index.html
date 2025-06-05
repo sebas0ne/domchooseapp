@@ -1,4 +1,3 @@
-// src/public/index.html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -8,7 +7,6 @@
     <link rel="manifest" href="manifest.json" />
     <title>domchooseapp</title>
     <script>
-      // Soporte para React Router
       if (location.pathname !== "/" && !location.pathname.startsWith("/?")) {
         const redirectTo = sessionStorage.redirect || "/";
         sessionStorage.redirect = location.pathname;
