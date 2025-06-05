@@ -1,3 +1,4 @@
+/* src/styles/commons/Menu.css */
 .menu-content {
   display: flex;
   flex-direction: column;
@@ -9,7 +10,7 @@
   bottom: 1.5rem;
   width: 2rem;
   height: 1.563rem;
-  z-index: 1001;
+  z-index: 1100;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -21,7 +22,8 @@
   width: 100%;
   background: #323232;
   border-radius: 0.2rem;
-  transition: 0.4s;
+  transition: transform 0.4s, opacity 0.4s, background 0.4s;
+  transform-origin: center;
 }
 
 .menu-icon.open span:nth-child(1) {
@@ -36,22 +38,28 @@
   transform: rotate(-45deg) translate(10px, -5px);
 }
 
+/* Overlay Menu */
 .overlay-menu {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #DDD0C8;
+  background-color: rgba(221, 208, 200, 0.8);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(-100%);
-  transition: transform 0.5s ease-in-out;
-  z-index: 1000;
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: all 0.4s ease;
+  z-index: 1001;
+  pointer-events: auto;
 }
 
 .overlay-menu.active {
+  opacity: 1;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -67,9 +75,23 @@
   color: #323232;
   font-weight: bold;
   cursor: pointer;
-  transition: color 0.2s;
+  transition: color 0.3s, transform 0.3s;
 }
 
-.overlay-menu li:hover {
-  color: #666;
+.overlay-menu li.active {
+  color: #323232; /* Destacado para el menú activo */
+  transform: scale(1.15);
+  position: relative;
+}
+
+.overlay-menu li.active::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 3px;
+  background-color: #323232;
+  border-radius: 2px;
 }
