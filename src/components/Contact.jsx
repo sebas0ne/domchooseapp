@@ -8,7 +8,7 @@ const Contact = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="home">
+    <div>
     <Menu />
       <div className="page-container">
         <h1>Contact</h1>
@@ -17,6 +17,8 @@ const Contact = () => {
         </p>
         <p><strong>Email:</strong> sebastian.alban.one@gmail.com</p>
         <p><strong>Twitter:</strong> @sebas0ne</p>
+        <p><strong>Github:</strong> @sebas0ne</p>
+        <p><strong>Instagram:</strong> @sebas0ne</p>
         <button className="btn bounce" onClick={() => navigate("/home")}>Go Back</button>
       </div>
     </div>

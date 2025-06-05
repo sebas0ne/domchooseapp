@@ -9,9 +9,10 @@ import RandomOptionModal from "../components/modals/RandomOptionModal";
 import EditFavoriteModal from "../components/modals/EditFavoriteModal";
 import LoaderOverlay from "../components/loaders/LoaderOverlay";
 import DeleteConfirmationModal from "../components/modals/DeleteConfirmationModal";
+import FavoriteCard from '../components/commons/FavoriteCard';
 import { toast, ToastContainer, Slide } from 'react-toastify';
 import { getFavoriteLists, saveFavoriteList, deleteFavoriteList } from "../firebase/favoriteService";
-import { Eye, Pencil, Trash2, Shuffle, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const Favorites = () => {
   const [showModal, setShowModal] = useState(false);
@@ -24,7 +25,6 @@ const Favorites = () => {
   const [isFetching, setIsFetching] = useState(true);
   const [showEditModal, setShowEditModal] = useState(false);
   const [listToEdit, setListToEdit] = useState(null);
-
 
   const [showShuffleModal, setShowShuffleModal] = useState(false);
   const [shuffledOptions, setShuffledOptions] = useState([]);
@@ -49,7 +49,6 @@ const Favorites = () => {
   const handleSaveFavorite = async () => {
     if (!title.trim() || !options.trim()) return;
     setIsLoading(true);
-  
     const parsedOptions = options
       .split(/[\n,]+/)
       .map(opt => opt.trim())
@@ -72,7 +71,7 @@ const Favorites = () => {
     setListToDelete(listId);
     setShowDeleteModal(true);
   };
-  
+
   const handleConfirmDelete = async () => {
     if (!listToDelete) return;
     setIsLoading(true);
@@ -125,34 +124,23 @@ const Favorites = () => {
           <h2 className="favorites-title">Favorites</h2>
           <ButtonIcon className="iconButton" onClick={() => setShowModal(true)} icon={Plus} size={16} />
         </div>
-          {isFetching
-              ? Array.from({ length: 7 }).map((_, i) => (
-                  <div className="favorite-card-skeleton" key={`skeleton-${i}`}>
-                    <h3 className="card-title">LOADING...</h3>
-                    <div className="card-buttons">
-                        <ButtonIcon title="VIEW" icon={Eye} size={16} className="iconButton" />
-                        <div className="button-column">
-                          <ButtonIcon title="EDIT" icon={Pencil} size={16} className="iconButton" />
-                          <ButtonIcon title="SHUFFLE" icon={Shuffle} size={16} className="iconButton" />
-                        </div>
-                        <ButtonIcon title="DELETE" icon={Trash2} size={16} className="iconButton" />
-                    </div>
-                  </div>
-                ))
-              : favoriteLists.map((list, index) => (
-                  <div className="favorite-card" key={list.id || index}>
-                    <h3 className="card-title">{list.title.toUpperCase()}</h3>
-                    <div className="card-buttons">
-                        <ButtonIcon title="VIEW" icon={Eye} size={16} className="iconButton" />
-                        <div className="button-column">
-                          <ButtonIcon title="EDIT" onClick={() => handleEditClick(list)} icon={Pencil} size={16} className="iconButton" />
-                          <ButtonIcon title="SHUFFLE" onClick={() => handleShuffle(list.options)} icon={Shuffle} size={16} className="iconButton" />
-                        </div>
-                        <ButtonIcon title="DELETE" onClick={() => handleDeleteClick(list.id)} icon={Trash2} size={16} className="iconButton" />
-                    </div>
-                  </div>
-           ))}
-        </div>
+
+        {isFetching
+          ? Array.from({ length: 7 }).map((_, i) => (
+              <FavoriteCard key={`skeleton-${i}`} loading />
+            ))
+          : favoriteLists.map((list) => (
+              <FavoriteCard
+                key={list.id}
+                title={list.title}
+                onEdit={() => handleEditClick(list)}
+                onShuffle={() => handleShuffle(list.options)}
+                onDelete={() => handleDeleteClick(list.id)}
+                onView={() => {}}
+              />
+            ))}
+
+      </div>
 
       {showModal && (
         <AddFavoriteModal
@@ -190,8 +178,6 @@ const Favorites = () => {
           initialOptions={listToEdit.options}
           onClose={() => setShowEditModal(false)}
           onSave={handleSaveEditedList}
-          isLoading={isLoading}
-          setIsLoading={setIsLoading}
         />
       )}
 

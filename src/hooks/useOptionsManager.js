@@ -41,7 +41,6 @@ const useOptionsManager = () => {
   };
 
   const showRandom = () => {
-    if (options.length < 2) return;
     const randomIndex = Math.floor(Math.random() * options.length);
     setSelected(options[randomIndex]);
     setShowModal(true);
