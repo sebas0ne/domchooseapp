@@ -19,7 +19,7 @@ const Menu = () => {
 
   const handleNavigate = (path) => {
     setIsOpen(false);
-    setTimeout(() => navigate(path), 300);
+    setTimeout(() => navigate(path), 400);
   };
 
   return (
@@ -37,15 +37,12 @@ const Menu = () => {
         {isOpen && (
           <motion.div
             className="overlay-menu"
-            initial={{ opacity: 0, y: "-10%" }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "-10%" }}
             transition={{ duration: 0.4 }}
           >
             <motion.ul
               initial="hidden"
               animate="visible"
-              exit="hidden"
               variants={{
                 hidden: {},
                 visible: { transition: { staggerChildren: 0.1 } },
@@ -61,7 +58,7 @@ const Menu = () => {
                       hidden: { opacity: 0, y: 10 },
                       visible: { opacity: 1, y: 0 },
                     }}
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.5 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleNavigate(item.path)}
                   >

@@ -20,7 +20,7 @@
 .menu-icon span {
   height: 4px;
   width: 100%;
-  background: #323232;
+  background: var(--color-text-principal);
   border-radius: 0.2rem;
   transition: transform 0.4s, opacity 0.4s, background 0.4s;
   transform-origin: center;
@@ -45,8 +45,8 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(221, 208, 200, 0.8);
-  backdrop-filter: blur(8px);
+  background-color: var(--background-color-principal);
+  backdrop-filter: blur(2rem);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -72,14 +72,14 @@
 .overlay-menu li {
   font-size: 2rem;
   margin: 1rem 0;
-  color: #323232;
+  color: var(--color-text-principal);
   font-weight: bold;
   cursor: pointer;
   transition: color 0.3s, transform 0.3s;
 }
 
 .overlay-menu li.active {
-  color: #323232; /* Destacado para el menú activo */
+  color: var(--background-color-button-principal);
   transform: scale(1.15);
   position: relative;
 }
@@ -92,6 +92,6 @@
   transform: translateX(-50%);
   width: 50%;
   height: 3px;
-  background-color: #323232;
+  background-color: var(--background-color-button-principal);
   border-radius: 2px;
 }

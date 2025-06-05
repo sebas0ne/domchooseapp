@@ -7,7 +7,7 @@ export async function generateAndShareCanvas(option, attempt = 1) {
     const ctx = canvas.getContext('2d');
   
     // Fondo
-    ctx.fillStyle = '#DDD0C8';
+    ctx.fillStyle = '#FFCE32';
     ctx.fillRect(0, 0, size, size);
   
     // Título
@@ -28,7 +28,7 @@ export async function generateAndShareCanvas(option, attempt = 1) {
     ctx.fill();
   
     // Texto en el círculo
-    ctx.fillStyle = '#DDD0C8';
+    ctx.fillStyle = '#FFCE32';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.font = '20px Arial';

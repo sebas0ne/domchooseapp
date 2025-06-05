@@ -1,6 +1,6 @@
 /* src/styles/App.css */
 body {
   font-family: "Century Gothic";
-  background-color: #DDD0C8;
-  color: #323232;
+  background-color: var(--background-color-principal);
+  color: var(--color-text-principal);
 }

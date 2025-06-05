@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
 import RandomOptionModal from "../components/modals/RandomOptionModal";
+import ButtonText from "./commons/ButtonText";
 import Menu from './commons/Menu';
 import useOptionsManager from "../hooks/useOptionsManager";
 
@@ -34,14 +35,7 @@ const Home = () => {
 
       <div className="registered-options">
         {options.map((opt, index) => (
-          <button
-            key={index}
-            className="btn option-btn"
-            onClick={() => handleRemoveOption(opt)}
-            title="Click to remove"
-          >
-            {opt}
-          </button>
+          <ButtonText className="btnText" key={index} title={opt} onClick={() => handleRemoveOption(opt)}/>
         ))}
       </div>
 
@@ -61,13 +55,9 @@ const Home = () => {
       )}
 
       <div className="button-group centered">
-        <button className="btn bounce" onClick={handleRegister}>
-          REGISTER
-        </button>
+        <ButtonText className="btnText" title={'REGISTER'} onClick={handleRegister}/>
         {options.length >= 2 && (
-          <button className="btn bounce" onClick={showRandom}>
-            RANDOM OPTION
-          </button>
+          <ButtonText className="btnText" title={'RANDOM OPTION'} onClick={showRandom}/>
         )}
       </div>
 

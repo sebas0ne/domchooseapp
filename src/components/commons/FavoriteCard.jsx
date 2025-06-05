@@ -16,7 +16,7 @@ const FavoriteCard = ({
   return (
     <div className="favorite-card">
       <h3 className="card-title">
-        {loading ? <Skeleton width={120} height={20} baseColor="#323232" highlightColor="#7f7f7f" borderRadius="0.5rem" /> : title.toUpperCase()}
+        {loading ? <Skeleton width={120} height={20} baseColor="#1D63FF" highlightColor="#fff" borderRadius="0.5rem" /> : title.toUpperCase()}
       </h3>
       <div className="card-buttons">
         <ButtonIcon

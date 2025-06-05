@@ -1,6 +1,7 @@
 // src/components/modals/AddFavoriteModal.jsx
 import React from "react";
 import ButtonIcon from '../../components/commons/ButtonIcon';
+import ButtonText from "../commons/ButtonText";
 import { X } from "lucide-react";
 import "../../styles/modals/AddFavoriteModal.css";
 
@@ -39,7 +40,7 @@ const AddFavoriteModal = ({
               onChange={(e) => setOptions(e.target.value)}
           />
           <div className="button-group centered">
-            <button className="save-button" onClick={handleSave}>SAVE</button>
+            <ButtonText className="btnText" title={'SAVE'} onClick={handleSave}/>
           </div>
         </div>
      </div>
