@@ -13,17 +13,14 @@
     color: #323232;
     border-radius: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    font-family: 'Helvetica Neue', sans-serif;
   }
 
   .page-container h1 {
-    font-size: 2rem;
     margin-bottom: 1.5rem;
     color: #323232;
   }
   
   .page-container p {
-    font-size: 1.1rem;
     line-height: 1.6;
   }
   

@@ -38,29 +38,20 @@
   transform: rotate(-45deg) translate(10px, -5px);
 }
 
-/* Overlay Menu */
 .overlay-menu {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: var(--background-color-principal);
-  backdrop-filter: blur(2rem);
+  background-color: rgba(252, 218, 106);
+  backdrop-filter: blur(0.75rem);
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  transform: translateY(-10%);
-  transition: all 0.4s ease;
+  will-change: opacity, transform;
   z-index: 1001;
   pointer-events: auto;
-}
-
-.overlay-menu.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
 }
 
 .overlay-menu ul {

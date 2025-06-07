@@ -1,6 +1,7 @@
 // src/components/LandingPage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import ButtonText from "../components/commons/ButtonText";
 import '../styles/LandingPage.css';
 
 const LandingPage = () => {
@@ -15,9 +16,7 @@ const LandingPage = () => {
       <div className="landing-container">
         <div className="creator-label">Created by @sebas0ne</div>
         <div className="center-content">
-          <button className="enter-button" onClick={handleNavigate}>
-            GO TO HOME
-          </button>
+          <ButtonText className="btnEnter" title={'GO TO HOME'} onClick={handleNavigate}/>
           <div className="arrows">
             <span>&uarr;</span>
             <span>&uarr;</span>
