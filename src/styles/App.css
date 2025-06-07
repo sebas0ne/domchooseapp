@@ -1,6 +1,10 @@
 /* src/styles/App.css */
-body {
-  font-family: "Century Gothic";
+html, body {
   background-color: var(--background-color-principal);
   color: var(--color-text-principal);
+  font-family: "Noto Sans", sans-serif;
+}
+
+* {
+  font-family: "Noto Sans", sans-serif !important;
 }

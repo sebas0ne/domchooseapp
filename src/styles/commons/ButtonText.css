@@ -15,3 +15,22 @@
   color: var(--color-button-hover);
   border: 0.2rem solid var(--border-color-button-hover);
 }
+
+.btnEnter {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  background-color: var(--background-color-button-principal);
+  color: var(--color-button-principal);
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.btnEnter:hover {
+  background-color: transparent;
+  color: var(--color-button-hover);
+  border: 0.2rem solid var(--border-color-button-hover);
+}

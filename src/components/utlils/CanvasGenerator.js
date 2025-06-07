@@ -11,7 +11,7 @@ export async function generateAndShareCanvas(option, attempt = 1) {
     ctx.fillRect(0, 0, size, size);
   
     // Título
-    ctx.fillStyle = '#323232';
+    ctx.fillStyle = '#1D63FF';
     ctx.font = '28px Arial';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
@@ -20,15 +20,15 @@ export async function generateAndShareCanvas(option, attempt = 1) {
     // Círculo
     const circleX = size / 2;
     const circleY = size / 2 + 20;
-    const radius = 130;
+    const radius = 150;
   
-    ctx.fillStyle = '#323232';
+    ctx.fillStyle = '#1D63FF';
     ctx.beginPath();
     ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI);
     ctx.fill();
   
     // Texto en el círculo
-    ctx.fillStyle = '#FFCE32';
+    ctx.fillStyle = '#fff';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
     ctx.font = '20px Arial';
@@ -74,14 +74,14 @@ export async function generateAndShareCanvas(option, attempt = 1) {
       canvas.toBlob(async (blob) => {
         if (!blob) return;
   
-        const file = new File([blob], 'option.png', { type: 'image/png' });
+        const file = new File([blob], `${option}.png`, { type: 'image/png' });
   
         // Intentar compartir
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
           try {
             await navigator.share({
-              title: 'My Random Option',
-              text: 'Check out the option I got!',
+              title: `My Random Option is: ${option}`,
+              text: `Check out the option I got: ${option}`,
               files: [file],
             });
           } catch (error) {
@@ -92,7 +92,7 @@ export async function generateAndShareCanvas(option, attempt = 1) {
           const url = URL.createObjectURL(blob);
           const link = document.createElement('a');
           link.href = url;
-          link.download = 'option.png';
+          link.download = `${option}.png`;
           link.click();
           URL.revokeObjectURL(url);
         }
