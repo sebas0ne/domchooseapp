@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(50, 50, 50, 0.6);
+    background: rgba(50, 50, 50, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,13 +28,13 @@
   .middle {
     width: 5rem;
     height: 5rem;
-    background-color: #AAA095;
+    background-color: var(--background-color-button-principal);
   }
 
   .inner {
     width: 2rem;
     height: 2rem;
-    background-color: #323232;
+    background-color: var(--background-color-principal);
   }
 
   @keyframes pulse {
